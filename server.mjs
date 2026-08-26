@@ -35,7 +35,7 @@ function normalizeMatch(match) {
 
 async function getMatches(url) {
   if (!token) return { matches: [], source: 'football-data.org', configured: false, message: 'أضف FOOTBALL_DATA_TOKEN لجلب المباريات الحقيقية.' };
-  const response = await fetch(`${apiBase}${url}`, { headers: { 'X-Auth-Token': token } });
+  const response = await fetch(`${apiBase}/matches${url}`, { headers: { 'X-Auth-Token': token } });
   if (!response.ok) throw new Error(`Football data provider returned ${response.status}`);
   const data = await response.json();
   return { matches: (data.matches || []).map(normalizeMatch), source: 'football-data.org', configured: true, fetchedAt: new Date().toISOString() };

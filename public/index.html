@@ -9,7 +9,7 @@
 <body>
   <main class="shell">
     <header class="hero"><div><p class="eyebrow">MATCHPULSE AI</p><h1>نبض المباريات</h1><p class="lead">جدول مباريات حقيقي وتحليل احتمالي مفسّر، دون ادعاء نتيجة مضمونة.</p></div><button id="language" class="ghost">English</button></header>
-    <section class="toolbar"><div><strong id="count">0</strong> مباراة في المصدر</div><button id="refresh" class="primary">تحديث الجدول</button></section>
+    <section class="toolbar"><div><strong id="count">0</strong> مباراة في المصدر <span id="summary" class="summary"></span></div><div class="filters"><select id="competitionFilter" aria-label="تصفية البطولة"><option value="">كل البطولات</option></select><select id="statusFilter" aria-label="تصفية الحالة"><option value="">كل الحالات</option><option value="SCHEDULED">مجدولة</option><option value="IN_PLAY">مباشرة</option><option value="FINISHED">منتهية</option></select><button id="refresh" class="primary">تحديث الجدول</button></div></section>
     <section id="notice" class="notice">جاري تحميل جدول المباريات…</section>
     <section class="table-wrap"><table><thead><tr><th>الموعد</th><th>البطولة</th><th>المباراة</th><th>الحالة</th><th>التحليل</th></tr></thead><tbody id="matches"><tr><td colspan="5" class="empty">لا توجد بيانات بعد.</td></tr></tbody></table></section>
     <footer><span>تطوير <strong>Abdelati Zarzori</strong></span><span>تحليل احتمالي لا يمثل نصيحة مراهنة</span></footer>

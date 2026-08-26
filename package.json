@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.mjs",
-    "test": "node --test",
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "test": "node --test server.test.mjs",
+    "test:secret": "vitest run secret.test.js",
     "check": "node --check server.mjs && node --check public/app.js"
   },
   "engines": { "node": ">=20" }
