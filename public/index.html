@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MatchPulse AI — تحليل المباريات</title>
+  <title>MatchPulse AI — جدول المباريات</title>
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
   <main class="shell">
-    <header class="hero"><div><p class="eyebrow">MATCHPULSE AI</p><h1>نبض المباريات</h1><p class="lead">جدول مباريات حقيقي وتحليل احتمالي مفسّر، دون ادعاء نتيجة مضمونة.</p></div><button id="language" class="ghost">English</button></header>
-    <section class="toolbar"><div><strong id="count">0</strong> مباراة في المصدر <span id="summary" class="summary"></span></div><div class="filters"><select id="competitionFilter" aria-label="تصفية البطولة"><option value="">كل البطولات</option></select><select id="statusFilter" aria-label="تصفية الحالة"><option value="">كل الحالات</option><option value="SCHEDULED">مجدولة</option><option value="IN_PLAY">مباشرة</option><option value="FINISHED">منتهية</option></select><button id="refresh" class="primary">تحديث الجدول</button></div></section>
-    <section id="notice" class="notice">جاري تحميل جدول المباريات…</section>
-    <section class="table-wrap"><table><thead><tr><th>الموعد</th><th>البطولة</th><th>المباراة</th><th>الحالة</th><th>التحليل</th></tr></thead><tbody id="matches"><tr><td colspan="5" class="empty">لا توجد بيانات بعد.</td></tr></tbody></table></section>
-    <footer><span>تطوير <strong>Abdelati Zarzori</strong></span><span>تحليل احتمالي لا يمثل نصيحة مراهنة</span></footer>
+    <header class="hero"><div><p class="eyebrow">MATCHPULSE AI</p><h1>نبض المباريات</h1><p id="lead" class="lead">جدول مباريات حقيقي وتحليل احتمالي مفسّر، دون ادعاء نتيجة مضمونة.</p></div><button id="language" type="button" class="ghost">English</button></header>
+    <section class="toolbar"><div><strong id="count">0</strong> <span id="countLabel">مباراة في المصدر</span> <span id="summary" class="summary"></span><span id="selectionSummary" class="selection-summary"></span></div><div class="filters"><select id="competitionFilter" aria-label="تصفية البطولة"><option value="">كل البطولات</option></select><select id="statusFilter" aria-label="تصفية الحالة"><option value="">كل الحالات</option><option value="SCHEDULED">مجدولة</option><option value="IN_PLAY">مباشرة</option><option value="FINISHED">منتهية</option></select><button id="refresh" type="button" class="primary">تحديث الجدول</button></div></section>
+    <section class="calendar-toolbar" aria-labelledby="calendarToolsTitle"><div><p class="eyebrow" id="calendarToolsTitle">PRO CALENDAR</p><p id="calendarHelp" class="calendar-help">اختر فرقك المفضلة لتصفية الجدول، ثم حدّد مباريات حقيقية لتصديرها بتوقيت UTC.</p></div><div class="calendar-controls"><label class="favorite-label" for="favoriteTeams"><span id="favoriteTeamsLabel">الفرق المفضلة</span><select id="favoriteTeams" multiple aria-describedby="calendarHelp"></select></label><button id="exportCalendar" type="button" class="export-pro" disabled>تصدير المحدد إلى ICS · Pro</button></div></section>
+    <section id="calendarNotice" class="calendar-notice" aria-live="polite">تصدير التقويم متاح فقط لاشتراك Pro موثّق من الخادم.</section>
+    <section id="notice" class="notice" aria-live="polite">جاري تحميل جدول المباريات…</section>
+    <section class="table-wrap"><table><thead><tr><th id="selectHead">تحديد</th><th id="dateHead">الموعد</th><th id="competitionHead">البطولة</th><th id="matchHead">المباراة</th><th id="statusHead">الحالة</th><th id="analysisHead">التحليل</th></tr></thead><tbody id="matches"><tr><td colspan="6" class="empty">لا توجد بيانات بعد.</td></tr></tbody></table></section>
+    <footer><span>تطوير <strong>Abdelati Zarzori</strong></span><span id="responsibleUse">تحليل احتمالي لا يمثل نصيحة مراهنة</span></footer>
   </main>
-  <dialog id="obta"><div class="modal-head"><div><p class="eyebrow">OBTA ANALYSIS</p><h2 id="modal-title">تحليل المباراة</h2></div><button id="close" class="close">×</button></div><div id="modal-body"></div></dialog>
+  <dialog id="obta"><div class="modal-head"><div><p class="eyebrow">OBTA ANALYSIS</p><h2 id="modal-title">تحليل المباراة</h2></div><button id="close" type="button" class="close" aria-label="إغلاق">×</button></div><div id="modal-body"></div></dialog>
   <script src="/app.js" defer></script>
 </body>
 </html>
